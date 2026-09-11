@@ -32,3 +32,16 @@ while True:
 
     # Convert the stock from a string to an integer
     stock = int(stock)
+
+      # Add the stock quantity to the total inventory
+    inventory += stock
+
+    # Display the current inventory
+    print("Inventory:", inventory)
+
+    # Check if the inventory exceeds 500 units
+    if inventory > 500:
+        print("ALERT: Inventory exceeds 500 units!")
+        
+        # Stop the loop immediately
+        break
