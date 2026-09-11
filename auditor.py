@@ -10,3 +10,25 @@ while True:
     # Stop the loop if the user enters "quit"
     if stock == "quit":
         break
+     # Check if the user entered a negative number
+    if stock.startswith("-") and stock[1:].isdigit():
+        print("Error: Negative numbers are not allowed.")
+        
+        # Add 1 to the failed entries count
+        failed_entries += 1
+        
+        # Go back to the start of the loop
+        continue
+
+    # Check if the input is not a valid number
+    if not stock.isdigit():
+        print("Error: Invalid input.")
+        
+        # Add 1 to the failed entries count
+        failed_entries += 1
+        
+        # Go back to the start of the loop
+        continue
+
+    # Convert the stock from a string to an integer
+    stock = int(stock)
