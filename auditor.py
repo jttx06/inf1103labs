@@ -45,3 +45,6 @@ while True:
         
         # Stop the loop immediately
         break
+# Display the final report
+print("Total Units Processed:", inventory)
+print("Number of Failed/Rejected Entries:", failed_entries)
