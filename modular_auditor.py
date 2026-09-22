@@ -35,6 +35,7 @@ while True:
     stock = get_valid_input()
 
     if stock == "quit":
+        generate_report(deliveries_processed, failed_entries)
         break
 
     if stock is None:
@@ -53,3 +54,5 @@ while True:
     if inventory > 500:
         print("ALERT: Inventory exceeds 500 units!")
         break
+
+    generate_report(deliveries_processed, failed_entries)
