@@ -1,7 +1,3 @@
-inventory = 0
-failed_entries = 0
-deliveries_processed = 0
-
 def get_valid_input():
     stock = input("Enter stock quantity or 'quit': ")
 
@@ -30,3 +26,30 @@ def generate_report(total_deliveries, failed_attempts):
     print("Total Deliveries Processed:", total_deliveries)
     print("Number of Failed/Rejected Entries:", failed_attempts)
 
+inventory = 0
+failed_entries = 0
+deliveries_processed = 0
+
+while True:
+
+    stock = get_valid_input()
+
+    if stock == "quit":
+        break
+
+    if stock is None:
+        failed_entries += 1
+        continue
+
+    inventory = process_delivery(inventory, stock)
+
+    tax = calculate_tax(stock)
+
+    print("Inventory:", inventory)
+    print("Tax:", tax)
+
+    deliveries_processed += 1
+
+    if inventory > 500:
+        print("ALERT: Inventory exceeds 500 units!")
+        break
