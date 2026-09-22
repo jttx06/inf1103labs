@@ -55,4 +55,3 @@ while True:
         print("ALERT: Inventory exceeds 500 units!")
         break
 
-    generate_report(deliveries_processed, failed_entries)
