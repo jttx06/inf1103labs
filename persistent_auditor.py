@@ -18,9 +18,6 @@ def process_delivery(current_total, new_value):
     new_total = current_total + new_value
     return new_total
 
-def calculate_tax(amount):
-    tax = amount * 0.10
-    return tax
 
 def generate_report(total_deliveries, failed_attempts):
     print("Total Deliveries Processed:", total_deliveries)
@@ -64,8 +61,7 @@ while True:
         print("Current Stock:", inventory)
         print("New Stock Added:", 0)
         print("Updated Inventory:", inventory)
-        print("Tax:", tax)
-
+      
         
         generate_report(deliveries_processed, failed_entries)
         save_inventory(inventory, transaction_history)
@@ -79,12 +75,11 @@ while True:
     inventory = process_delivery(inventory, stock)
     transaction_history.append(stock)
 
-    tax = calculate_tax(stock)
     
     print("Current Stock:", current_stock)
     print("New Stock Added:", stock)
     print("Updated Inventory:", inventory)
-    print("Tax:", tax)
+
 
     deliveries_processed += 1
 
