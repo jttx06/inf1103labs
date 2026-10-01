@@ -61,6 +61,7 @@ while True:
         print("Current Stock:", inventory)
         print("New Stock Added:", 0)
         print("Updated Inventory:", inventory)
+        print("Transaction History:", transaction_history)
       
         
         generate_report(deliveries_processed, failed_entries)
@@ -79,7 +80,7 @@ while True:
     print("Current Stock:", current_stock)
     print("New Stock Added:", stock)
     print("Updated Inventory:", inventory)
-
+    print("Transaction History:", transaction_history)
 
     deliveries_processed += 1
 
