@@ -44,9 +44,9 @@ def load_inventory():
     except FileNotFoundError:
         return 0, []
 
- 
 
-inventory = 0
+ 
+inventory, transaction_history = load_inventory()
 failed_entries = 0
 deliveries_processed = 0
 
