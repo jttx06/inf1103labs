@@ -61,8 +61,14 @@ while True:
     stock = get_valid_input()
 
     if stock == "quit":
-        save_inventory(inventory, transaction_history)
+        print("Current Stock:", inventory)
+        print("New Stock Added:", 0)
+        print("Updated Inventory:", inventory)
+        print("Tax:", tax)
+
+        
         generate_report(deliveries_processed, failed_entries)
+        save_inventory(inventory, transaction_history)
         break
 
     if stock is None:
