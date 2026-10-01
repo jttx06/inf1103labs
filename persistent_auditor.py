@@ -50,6 +50,7 @@ def save_inventory(inventory, history):
 
         for transaction in history:
             file.write(str(transaction) + "\n")
+    print("Inventory and transaction history saved to inventory.txt.")
  
 inventory, transaction_history = load_inventory()
 failed_entries = 0
@@ -60,6 +61,7 @@ while True:
     stock = get_valid_input()
 
     if stock == "quit":
+        save_inventory(inventory, transaction_history)
         generate_report(deliveries_processed, failed_entries)
         break
 
@@ -67,12 +69,15 @@ while True:
         failed_entries += 1
         continue
 
+    current_stock = inventory
     inventory = process_delivery(inventory, stock)
     transaction_history.append(stock)
-    print("Transaction History:", transaction_history)
-    tax = calculate_tax(stock)
 
-    print("Inventory:", inventory)
+    tax = calculate_tax(stock)
+    
+    print("Current Stock:", current_stock)
+    print("New Stock Added:", stock)
+    print("Updated Inventory:", inventory)
     print("Tax:", tax)
 
     deliveries_processed += 1
