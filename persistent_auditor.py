@@ -44,7 +44,12 @@ def load_inventory():
     except FileNotFoundError:
         return 0, []
 
+def save_inventory(inventory, history):
+    with open("inventory.txt", "w") as file:
+        file.write(str(inventory) + "\n")
 
+        for transaction in history:
+            file.write(str(transaction) + "\n")
  
 inventory, transaction_history = load_inventory()
 failed_entries = 0
@@ -63,7 +68,8 @@ while True:
         continue
 
     inventory = process_delivery(inventory, stock)
-
+    transaction_history.append(stock)
+    print("Transaction History:", transaction_history)
     tax = calculate_tax(stock)
 
     print("Inventory:", inventory)
